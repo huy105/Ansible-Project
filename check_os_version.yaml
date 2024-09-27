@@ -1,0 +1,8 @@
+---
+- name: Check OS version
+  hosts: all
+  gather_facts: true  # Bật tính năng thu thập thông tin
+  tasks:
+    - name: Display OS version
+      debug:
+        msg: "The operating system is {{ ansible_distribution }} {{ ansible_distribution_version }}"
