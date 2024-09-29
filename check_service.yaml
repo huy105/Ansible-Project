@@ -1,0 +1,13 @@
+---
+- name: Check OS version
+  hosts: all
+  gather_facts: true  # Bật tính năng thu thập thông tin
+  tasks:
+    - name: Check CUPS service status
+      ansible.builtin.systemd:
+        name: pgpool2
+        state: started
+      register: pgpool2_status
+    - name: Show Pgpool service status
+      debug:
+        var: pgpool2_status
