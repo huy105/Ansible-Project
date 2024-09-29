@@ -6,3 +6,11 @@
     - name: Display OS version
       debug:
         msg: "The operating system is {{ ansible_distribution }} {{ ansible_distribution_version }}"
+    - name: Check CUPS service status
+      ansible.builtin.systemd:
+        name: cups
+        state: started
+      register: cups_status
+    - name: Show CUPS service status
+      debug:
+        var: cups_status
