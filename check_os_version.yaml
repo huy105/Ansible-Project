@@ -8,9 +8,9 @@
         msg: "The operating system is {{ ansible_distribution }} {{ ansible_distribution_version }}"
     - name: Check CUPS service status
       ansible.builtin.systemd:
-        name: cups
+        name: pgpool2
         state: started
-      register: cups_status
+      register: pgpool2_status
     - name: Show CUPS service status
       debug:
-        var: cups_status
+        var: pgpool2_status
