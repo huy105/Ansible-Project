@@ -9,9 +9,7 @@
         state: started
       register: pgpool2_status
       ignore_errors: yes
-    - name: Skip task if Pgpool2 service does not exist
-      meta: end_host
-      when: "'Could not find the requested service' in pgpool2_status.msg"
+
     - name: Show Pgpool service status
       debug:
         var: pgpool2_status
