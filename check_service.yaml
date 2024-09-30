@@ -3,12 +3,15 @@
   hosts: all
   gather_facts: true  # Bật tính năng thu thập thông tin
   tasks:
-    - name: Check CUPS service status
+    - name: Check Pgpool2 service status
       ansible.builtin.systemd:
         name: pgpool2
         state: started
       register: pgpool2_status
-      failed_when: pgpool2_status.failed_when_result and "Could not find the requested service" not in pgpool2_status.msg
+      ignore_errors: yes
+    - name: Skip task if Pgpool2 service does not exist
+      meta: end_host
+      when: "'Could not find the requested service' in pgpool2_status.msg"
     - name: Show Pgpool service status
       debug:
         var: pgpool2_status
