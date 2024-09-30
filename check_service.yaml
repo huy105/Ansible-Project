@@ -8,7 +8,7 @@
         name: pgpool2
         state: started
       register: pgpool2_status
-      failed_when: pgpool2_status.failed and "Could not find the requested service" not in pgpool2_status.msg
+      failed_when: pgpool2_status.failed_when_result and "Could not find the requested service" not in pgpool2_status.msg
     - name: Show Pgpool service status
       debug:
         var: pgpool2_status
