@@ -8,7 +8,6 @@
         name: pgpool2
         state: started
       register: pgpool2_status
-      ignore_errors: yes
 
     - name: Show Pgpool service status
       debug:
