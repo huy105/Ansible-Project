@@ -12,3 +12,6 @@
     - name: Show Pgpool service status
       debug:
         var: pgpool2_status
+
+
+        
