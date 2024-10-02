@@ -12,6 +12,11 @@
       debug:
         msg: "Current user is: {{ current_user.stdout }}"
 
+    - name: List /root directory to verify sudo access
+      command: ls /root
+      register: root_list
+      ignore_errors: true  # Để tránh thất bại nếu không có quyền
+
     - name: "Add Internal DNS out rule"
       pfsensible.core.pfsense_rule:
         name: 'Allow Internal DNS traffic out'
