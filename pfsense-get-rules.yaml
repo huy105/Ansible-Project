@@ -19,7 +19,7 @@
 
     - name: Show root list
       debug:
-        msg: "Current user is: {{ current_user.stdout }}"
+        msg: "Current user is: {{ root_list.stdout }}"
 
     - name: "Add Internal DNS out rule"
       pfsensible.core.pfsense_rule:
