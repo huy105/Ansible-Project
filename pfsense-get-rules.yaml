@@ -4,6 +4,14 @@
   become: true
   gather_facts: true
   tasks:
+    - name: Get current user
+      command: whoami
+      register: current_user  # Lưu kết quả vào biến
+
+    - name: Show current user
+      debug:
+        msg: "Current user is: {{ current_user.stdout }}"
+
     - name: "Add Internal DNS out rule"
       pfsensible.core.pfsense_rule:
         name: 'Allow Internal DNS traffic out'
