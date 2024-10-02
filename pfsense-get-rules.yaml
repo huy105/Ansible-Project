@@ -1,6 +1,7 @@
 ---
 - name: Open a port on pfSense
   hosts: all
+  become: true
   gather_facts: true
   tasks:
     - name: "Add Internal DNS out rule"
