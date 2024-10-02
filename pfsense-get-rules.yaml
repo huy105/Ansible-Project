@@ -13,7 +13,7 @@
         msg: "Current user is: {{ current_user.stdout }}"
 
     - name: List /root directory to verify sudo access
-      command: ls /root
+      command: sudo ls /conf
       register: root_list
       ignore_errors: true  # Để tránh thất bại nếu không có quyền
 
