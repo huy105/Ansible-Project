@@ -13,5 +13,4 @@
         source: any
         destination: any
         destination_port: 53
-        after: 'Allow proxies out'
         state: present
